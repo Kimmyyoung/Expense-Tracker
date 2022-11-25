@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from 'styled-components';
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import NewItemForm from "./NewItemForm";
 
-function NewItemContainer(){
-    const [ amount, setAmount ] = useState();
-    
+function NewItemContainer(){    
     return(
         <>
         <Wrapper>
-            <Input placeholder='$10' type='text' value={amount} name="amount" /> <br/>
-            <Button type="submit" onClick={()=>{}} content="Continue" />
+            <NewItemForm />
         </Wrapper>
         </>
     );
