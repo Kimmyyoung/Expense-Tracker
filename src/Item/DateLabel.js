@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const DateLabel = (props) => {
     const dt = new Date(props);
-
+    
     const year = dt.getFullYear();
     console.log(year);
     const month = ("00" + (dt.getMonth() + 1)).slice(-2);

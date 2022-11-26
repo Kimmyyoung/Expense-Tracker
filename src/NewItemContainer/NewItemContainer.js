@@ -6,6 +6,7 @@ function NewItemContainer(){
     return(
         <>
         <Wrapper>
+            <h1>Add New Transaction</h1>
             <NewItemForm />
         </Wrapper>
         </>
