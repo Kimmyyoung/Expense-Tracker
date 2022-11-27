@@ -1,17 +1,18 @@
 import React, { useContext } from "react";
 import { FilterContext } from "./PocketContainer";
 import Item from "../Item/Item";
+import styled from 'styled-components';
 
 const PocketItem = ()=>{
     const { filteredItems } = useContext(FilterContext);
 
     if(filteredItems.length === 0) {
         return (
-            <div>
+            <Wrapper>
                 <span style={{display: "block", textAlign: "center"}}>
-                    입력된 데이터가 없어요
+                    No Transaction 🙅‍♀️
                 </span>
-            </div>
+            </Wrapper>
         );
     }
 
@@ -25,12 +26,21 @@ const PocketItem = ()=>{
     });
 
     return (
-        <div>
+        <Wrapper>
             {sortedFilteredItems.map((item) => {
                 <Item key={item.key} id={item.id} date={item.date} title={item.title} amount={item.amount} amountType={item.amountType} />
             })}
-        </div>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    font-family: 'ReadexPro-Regular';
+    background-color: white;
+    & span {
+        background-color: white;
+        margin: 10%;
+    }
+`;
 
 export default PocketItem;

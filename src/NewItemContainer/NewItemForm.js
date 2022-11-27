@@ -1,5 +1,4 @@
 import React, { useCallback, useState, useContext } from "react";
-import styled from 'styled-components';
 import { addComma, enteredOnlyNumber, deleteComma } from '../utils/numberUtils.js';
 import { ItemDispatchContext } from "../App.js";
 import { StopEditContext } from "./NewItem.js";
@@ -8,8 +7,7 @@ import Button from "../Button/Button";
 
 const NewItemForm = () => {
 
-    const [{ onAdd }, { nextItemId }] = useContext(ItemDispatchContext);
-    const { stopEditingHandler } = useContext(StopEditContext);
+    //const { stopEditingHandler } = useContext(StopEditContext);
 
     
     const [enterDate, setEnterDate] = useState("");
@@ -24,7 +22,7 @@ const NewItemForm = () => {
 
 
     const getDate = useCallback(()=>{
-        return new Date().toISOString.substring(0,10);
+        return new Date().toISOString().substring(0,10);
     },[]);
 
     const dateChangeHandler = (e) => {
@@ -35,7 +33,7 @@ const NewItemForm = () => {
         let isSizeover = e.target.value.length > TITLE_SIZE ? true : false;
         setIsTitleSizeOver(isSizeover);
         setEnterTitle(e.target.value);
-    } //
+    } 
 
     const amountChangeHandler = (e) => {
         let isNotNumber = /^[^1-9][^0-9]{0,11}$/g.test(e.target.value) ? true : false;
@@ -52,21 +50,21 @@ const NewItemForm = () => {
     const submitHandler = (e) => {
         e.preventDefault(); //avoid rerending page
         const enteredData = {
-            id: nextItemId,
+            id: 0,
             date : new Date(enterDate),
             title: enterTitle,
             amount: deleteComma(enterAmount),
             amountType: enterAmountType,
         };
 
-        onAdd(enteredData); //giving the data to parents components
+        //onAdd(enteredData); //giving the data to parents components
 
         setEnterAmount("");
         setEnterTitle("");
         setEnterDate("");
         setenterAmountType("");
 
-        stopEditingHandler();
+        //stopEditingHandler();
     }
 
     return (
@@ -115,7 +113,7 @@ const NewItemForm = () => {
 
             <div>
                 <Button type="submit" className="btn" content="Add New Transaction" />
-                <Button type="button" className="btn" onClick={stopEditingHandler} content="Cancle" />
+                <Button type="button" className="btn" onClick={()=>{}} content="Cancle" />
             </div>
 
 

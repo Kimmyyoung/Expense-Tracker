@@ -1,12 +1,13 @@
 import React from "react";
 import styled from 'styled-components';
 
-function Input({props}){
-    return <StyledInput type={props.type} 
-        value={props.value} 
-        name={props.name} 
-        placeholder={props.placeholder} 
-        onChange={props.onChange} 
+function Input({type, value, name, placeholder, onChange}){
+    return <StyledInput 
+        type={type} 
+        value={value} 
+        name={name} 
+        placeholder={placeholder} 
+        onChange={onChange} 
     />;
 };
 

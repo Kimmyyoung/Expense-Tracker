@@ -15,7 +15,7 @@ const StyledButton = styled.button`
     border: 0px;
     background-color: #51DE9A;
     color: white;
-    font-family: 'Readex Pro';
+    font-family: 'ReadexPro-Regular';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;

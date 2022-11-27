@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { addComma } from "../utils/numberUtils";
 import { FilterContext } from "./PocketContainer";
+import styled from 'styled-components';
 
 const PocketStatus = (props) => {
     const { filteredItems, filterBaseYear } = useContext(FilterContext);
@@ -31,26 +32,83 @@ const PocketStatus = (props) => {
     },[filteredItems]);
     
     return (
-        <div className="pocketStatus">
-            <div className="pocketStatusTitle">
-                <h1>{twoDigitYear}년 자산 현황</h1>
+        <Wrapper>
+            <PocketStatusTitle>
+                <h1>{twoDigitYear} Overall Balance</h1>
                 <strong className="title">
-                    {addComma(totalBalance.toString())} 원
+                    ${addComma(totalBalance.toString())}
                 </strong>
-            </div>
+            </PocketStatusTitle>
         
-            <div className="pocketStatusDetail">
-                <div className="pocketStatusIncome">
-                    <span>수입</span>
-                    <strong>{addComma(totalIncome.toString())}</strong>
-                </div>
-                <div className="pocketStatusExpense">
-                    <span>지출</span>
-                    <strong>{addComma(totalExpense.toString())}</strong>
-                </div>
-            </div>
-        </div>
+            <PocketStatusDetail>
+                <PocketStatusDetailSubtitle>
+                    <span>Income</span>
+                    <strong>${addComma(totalIncome.toString())}</strong>
+                </PocketStatusDetailSubtitle>
+                <PocketStatusDetailSubtitle>
+                    <span>Expense</span>
+                    <strong>${addComma(totalExpense.toString())}</strong>
+                </PocketStatusDetailSubtitle>
+            </PocketStatusDetail>
+        </Wrapper>
     );
 }
 
+const Wrapper = styled.div`
+    width: 393px;
+    height: 231px;
+    background-color: white;
+`;
+
+const PocketStatusTitle = styled.div`
+    margin-top: 10%;
+    background-color: white;
+
+    & h1{
+        font-family: 'ReadexPro-Regular';
+        font-weight: 400;
+        font-size: 32px;
+        color: #979797;
+        background-color: white;
+        text-align: center;
+    }
+    strong {
+        font-family: 'ReadexPro-Regular';
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 50px;
+        color: #1D2A30;
+        background-color: white;
+        text-align: center;
+    }
+`;
+
+const PocketStatusDetail = styled.div`
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+`;
+
+const PocketStatusDetailSubtitle = styled.div`
+    background-color: white;
+    display: flex;
+    flex-direction : column;
+
+    & span {
+        font-family: 'ReadexPro-Regular';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #979797;
+        background-color: white;
+    }
+    & strong {
+        font-family: 'ReadexPro-Regular';
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 38px;
+        color: #1D2A30;
+        background-color: white;
+    }
+`;
 export default PocketStatus;

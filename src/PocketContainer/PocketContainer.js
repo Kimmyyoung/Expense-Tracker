@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import Button from "../Button/Button";
 import PocketHistory from "./PocketHistory";
 import PocketStatus from "./PocketStatus";
-
+import PocketChart from "./PocketChart";
+import NewItem from "../NewItemContainer/NewItem";
 export const FilterContext = React.createContext();
 
 function PocketContainer(props){
@@ -23,7 +24,7 @@ function PocketContainer(props){
         }
     },[props.items]);
 
-    if(props.items.length > 0) {
+    if(props.items > 0) {
         filteredItems = props.Items.filter((item) => item.date.getFullYear().toString() === filterBaseYear);
         filteredExpense = filteredItems.filter ((item) => item.amountType === 'expense');   
     }
@@ -41,6 +42,7 @@ function PocketContainer(props){
             <FilterContext.Provider value={memoizedFilter}>
                 <PocketStatus />
                 <PocketHistory />
+                <NewItem />
             </FilterContext.Provider>
         </Wrapper>
     );
@@ -49,7 +51,7 @@ function PocketContainer(props){
 const Wrapper = styled.div`
     width: 393px;
     height: 500px;
-    background-color: grey;
+    background-color: white;
     border-radius: 20px;
     margin: 100px;
 `;
