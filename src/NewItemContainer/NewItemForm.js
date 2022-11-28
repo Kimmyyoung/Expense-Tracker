@@ -4,6 +4,7 @@ import { ItemDispatchContext } from "../App.js";
 import { StopEditContext } from "./NewItem.js";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import styled from "styled-components";
 
 const NewItemForm = () => {
 
@@ -68,58 +69,160 @@ const NewItemForm = () => {
     }
 
     return (
+        <Wrapper>
+
         <form className="NewItemForm" onSubmit={submitHandler}>
-            <div>
+            <DateContainer>
                 <h2>Date</h2>
                 <Input type="date" value={enterDate} onChange={dateChangeHandler} min="2020-01-01" max={getDate()} required />
-            </div>
-            <div>
-                <div>
-                    <h2>Category</h2>
-                    <span style={{display: isTitleSizeOver ? "inline-block" : "none"}}>
-                        {TITLE_SIZE} 자 까지만 입력할 수 있어요
-                    </span>
-                </div>
+            </DateContainer>
 
+            <CategoryContainer>
+                <h2>Category</h2>
                 <Input type="text" value={enterTitle} onChange={titleChangeHandler} placeholder="Category" maxLength={TITLE_SIZE} required />
-            </div>
+            </CategoryContainer>
 
-            <div>
-                <div>
+            <AmountContainer>
+                <AmountContainerSubtitle>
                     <h2>Amount</h2>
                     <span style={{display: isEnterWrongAmount? "inline-block" : "none"}}>
                         Please Enter below $100,000
                     </span>
-                </div>
+                </AmountContainerSubtitle>
 
                 <Input type="text" value={enterAmount} onChange={amountChangeHandler} placeholder="$10" maxLength="11" required />
 
+                <AmountTypeContainer>
+                    <AmountType>
+                        <Input type="radio" id="income" name="amountType" value="income" 
+                        onChange={amountTypeChangeHandler} 
+                        checked={enterAmountType === "income" || ""} required />
+                        <label>Income</label>
+                    </AmountType>
+                    
+                    <AmountType>
+                        <Input type="radio" id="expense" name="amountType" 
+                        value="expense" onChange={amountTypeChangeHandler} 
+                        checked={enterAmountType === "expense" || ""} required />
+                        <label>Expense</label>
+                    </AmountType>
 
-                <div className="amounttype">
-                    <Input type="radio" id="income" name="amountType" value="income" 
-                    onChange={amountTypeChangeHandler} 
-                    checked={enterAmountType === "income" || ""} required />
-                    <label>수입</label>
-                </div>
+
+                </AmountTypeContainer>
                 
-                <div className="amounttype">
-                    <Input type="radio" id="expense" name="amountType" 
-                    value="expense" onChange={amountTypeChangeHandler} 
-                    checked={enterAmountType === "expense" || ""} required />
-                    <label>지출</label>
-                </div>
-            </div>
+            </AmountContainer>
 
-
-            <div>
-                <Button type="submit" className="btn" content="Add New Transaction" />
-                <Button type="button" className="btn" onClick={()=>{}} content="Cancle" />
-            </div>
-
-
-
+            <ButtonContainer>
+                <Button type="button" className="btn" onClick={()=>{}} content="Continue" />
+            </ButtonContainer>
         </form>
+        </Wrapper>
+        
     )
 }
+const Wrapper = styled.div`
+    background-color: white;
+    content-align: center;
+    border-radius: 20px;
+    & .NewItemForm {
+        background-color: white;
+    }
+`;
+const DateContainer = styled.div`
+    background-color: white;
+    
+    & h2 {
+        background-color: white;
+        font-family: 'ReadexPro-SemiBold';
+        font-size: 16px;
+        padding-left: 5%;
+    }
+
+    & Input{
+        background-color: white;
+        height: 30px;
+        padding: 3%;
+        margin: 5%;
+    }
+`;
+
+const CategoryContainer = styled.div`
+    background-color: white;
+    & h2 {
+        background-color: white;
+        font-family: 'ReadexPro-SemiBold';
+        font-size: 16px;
+        padding-left: 5%;
+    }
+    & Input{
+        background-color: white;
+        height: 30px;
+        padding: 3%;
+        margin: 5%;
+    }
+`;
+
+const AmountContainer = styled.div`
+    background-color: white;
+    & Input {
+        background-color: white;
+        height: 30px;
+        padding: 3%;
+        margin: 5%;
+    }
+`;
+
+const AmountContainerSubtitle = styled.div`
+    background-color: white;
+    & h2 {
+        background-color: white;
+        padding-left: 5%;
+        font-family: 'ReadexPro-SemiBold';
+        font-size: 16px;    
+    }
+    & span {
+        background-color: white;
+        padding-left: 5%;
+        font-family: 'ReadexPro-regular';
+        font-size: 16px;      
+    }
+ 
+`;
+
+
+const AmountTypeContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+
+`;
+
+const AmountType = styled.div`
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin-left: 5%;
+
+    & Input {
+        width: 30px;
+        height: 30px;
+        padding: 3%;
+    }
+    & label {
+        font-family: 'ReadexPro-Regular';
+        font-size: 16px;
+        background-color: white;
+        margin-left: 5%;
+        padding-top: 5%;
+    }
+`;
+
+const ButtonContainer = styled.div`
+    text-align: center;
+    background-color: white;
+    margin: 5% 0% 5% 0%;
+`;
 
 export default NewItemForm;

@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styled from 'styled-components';
-import Button from "../Button/Button";
 import PocketHistory from "./PocketHistory";
 import PocketStatus from "./PocketStatus";
 import PocketChart from "./PocketChart";
@@ -38,13 +37,20 @@ function PocketContainer(props){
     }, [filteredItems, filterBaseYear]);
 
     return (
+        <>
         <Wrapper>
             <FilterContext.Provider value={memoizedFilter}>
                 <PocketStatus />
                 <PocketHistory />
-                <NewItem />
             </FilterContext.Provider>
         </Wrapper>
+
+        <NewItemWrapper>
+            <NewItem />
+        </NewItemWrapper>
+
+        </>
+        
     );
 }
 
@@ -53,7 +59,12 @@ const Wrapper = styled.div`
     height: 500px;
     background-color: white;
     border-radius: 20px;
-    margin: 100px;
 `;
 
+const NewItemWrapper = styled.div`
+    margin-top: 1%;
+    width: 393px;
+    margin-bottom: 1%;
+    border-radius: 20px;
+`;
 export default PocketContainer;

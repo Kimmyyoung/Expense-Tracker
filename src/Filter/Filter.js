@@ -20,6 +20,8 @@ const Filter = () => {
 }
 
 const Select = styled.select`
+    height: 16px;
+    content-align: center;
     background-color: white;
     content-align: center;
     border:none;
@@ -28,10 +30,7 @@ const Select = styled.select`
         cursor: pointer;
         display: inline-block;
         position: relative;
-        font-size: 16px;
-        color: $select-color;
-        width: $select-width;
-        height: $select-height;
+        font-size: 10px;
     }
 `;
 

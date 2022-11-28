@@ -23,13 +23,18 @@ const NewItem = () => {
     return (
         <Wrapper style={{cursor: !isEditing ? "pointer" : "auto"}}>
             {!isEditing && (
-                <Button onClick={startEditingHandler} content="Add New Transaction" />
+                <StyledButton>
+                    <Button onClick={startEditingHandler} content="Add New Transaction" />
+                </StyledButton>
             )}
+
             {isEditing && (
-                
-                <StopEditContext.Provider value={memorizedStopEdit}>
-                    <NewItemContainer />
-                </StopEditContext.Provider>
+                <>
+                    <StopEditContext.Provider value={memorizedStopEdit}>
+                        <NewItemContainer />
+                    </StopEditContext.Provider>
+
+                </>
             )}
         </Wrapper>
     );
@@ -39,6 +44,15 @@ const Wrapper = styled.div`
     background-color: white;
     content-align: center;
     font-family: 'ReadexPro-Regular';
+    border-radius: 20px;
+`;
+
+const StyledButton = styled.div`
+    text-align: center;
+    width: 393px;
+    & Button {
+        width: 393px;
+    }
 `;
 
 export default NewItem;

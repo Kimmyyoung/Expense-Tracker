@@ -16,6 +16,8 @@ const StyledInput = styled.input`
     heigth: 56px;
     border-radius: 10px;
     border: 1px solid #51DE9A;
+    font-family: 'ReadexPro-Regular';
+    font-size: 16px;
 `;
 
 

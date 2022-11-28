@@ -9,7 +9,6 @@ const PocketStatus = (props) => {
     const [ totalBalance, setTotalBalance ] = useState(0);
     const [ totalIncome, setTotalIncome ] = useState(0);
     const [ totalExpense, setTotalExpense ] = useState(0);
-    const twoDigitYear = filterBaseYear.slice(-2);
 
     useEffect(() => {
         let total = {balance: 0, income: 0, expense: 0};
@@ -34,7 +33,7 @@ const PocketStatus = (props) => {
     return (
         <Wrapper>
             <PocketStatusTitle>
-                <h1>{twoDigitYear} Overall Balance</h1>
+                <h1>Overall Balance</h1>
                 <strong className="title">
                     ${addComma(totalBalance.toString())}
                 </strong>
@@ -55,22 +54,27 @@ const PocketStatus = (props) => {
 }
 
 const Wrapper = styled.div`
-    width: 393px;
-    height: 231px;
+    border-radius: 20px;
     background-color: white;
+    padding-top: 10%;
 `;
 
 const PocketStatusTitle = styled.div`
-    margin-top: 10%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 90%;
+    margin-bottom: 10%;
     background-color: white;
+    padding-left: 10%;
+
 
     & h1{
         font-family: 'ReadexPro-Regular';
         font-weight: 400;
-        font-size: 32px;
+        font-size: 16px;
         color: #979797;
         background-color: white;
-        text-align: center;
     }
     strong {
         font-family: 'ReadexPro-Regular';
@@ -79,20 +83,24 @@ const PocketStatusTitle = styled.div`
         line-height: 50px;
         color: #1D2A30;
         background-color: white;
-        text-align: center;
     }
 `;
 
 const PocketStatusDetail = styled.div`
     background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
 `;
 
 const PocketStatusDetailSubtitle = styled.div`
     background-color: white;
     display: flex;
     flex-direction : column;
+    padding: 15px 0;
+     width: 50%;
+     padding-left:10%;
 
     & span {
         font-family: 'ReadexPro-Regular';
