@@ -1,15 +1,16 @@
 import React from "react";
+import styled from "styled-components";
 import ChartBar from "./ChartBar";
 
-import { FilterContext } from "../PocketContainer/PocketContainer";
-
 const Chart = (props) => {
-    const amountOfChartDatas = props.chartDatas.map((data) => data.amount);
+    const amountOfChartDatas = props.chartDates.map((data) => (data.amount));
+
+    
     const maximumAmountOfChartDatas = Math.max(...amountOfChartDatas);
     
     return (
-        <div aria-label={+"년의 월별 지출"}>
-            {props.chartDatas.map((expense) => (
+        <Wrapper>
+            {props.chartDates.map((expense) => (
                 <ChartBar
                 key={expense.label}
                 label={expense.label}
@@ -17,8 +18,15 @@ const Chart = (props) => {
                 maximumAmount={maximumAmountOfChartDatas}
         />
       ))}
-        </div>
+        </Wrapper>
     )
 }
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+`;
 export default Chart;

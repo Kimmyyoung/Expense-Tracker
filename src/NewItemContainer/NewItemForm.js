@@ -1,16 +1,16 @@
 import React, { useCallback, useState, useContext } from "react";
 import { addComma, enteredOnlyNumber, deleteComma } from '../utils/numberUtils.js';
-import { ItemDispatchContext } from "../App.js";
 import { StopEditContext } from "./NewItem.js";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import styled from "styled-components";
+import { ItemDispatchContext } from "../App.js";
+
 
 const NewItemForm = () => {
+    const [{ onAdd },{ nextItemId }] = useContext(ItemDispatchContext);
+    const { stopEditingHandler } = useContext(StopEditContext);
 
-    //const { stopEditingHandler } = useContext(StopEditContext);
-
-    
     const [enterDate, setEnterDate] = useState("");
     const [enterTitle, setEnterTitle] = useState("");
     const [enterAmount, setEnterAmount] = useState("");
@@ -50,22 +50,23 @@ const NewItemForm = () => {
 
     const submitHandler = (e) => {
         e.preventDefault(); //avoid rerending page
+
         const enteredData = {
-            id: 0,
+            id: nextItemId,
             date : new Date(enterDate),
             title: enterTitle,
             amount: deleteComma(enterAmount),
             amountType: enterAmountType,
         };
 
-        //onAdd(enteredData); //giving the data to parents components
+        onAdd(enteredData); //giving the data to parents components
 
         setEnterAmount("");
         setEnterTitle("");
         setEnterDate("");
         setenterAmountType("");
 
-        //stopEditingHandler();
+        stopEditingHandler();
     }
 
     return (
@@ -113,7 +114,8 @@ const NewItemForm = () => {
             </AmountContainer>
 
             <ButtonContainer>
-                <Button type="button" className="btn" onClick={()=>{}} content="Continue" />
+                <Button type="submit" className="btn" onClick={submitHandler} content="Continue" />
+                <Button type="button" className="cancleBtn" onClick={stopEditingHandler} content="Cancle" />
             </ButtonContainer>
         </form>
         </Wrapper>
@@ -220,9 +222,16 @@ const AmountType = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-    text-align: center;
     background-color: white;
     margin: 5% 0% 5% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & button {
+        width: 40%;
+        margin: 3%
+    }
 `;
 
 export default NewItemForm;

@@ -1,14 +1,67 @@
 import PocketContainer from "./PocketContainer/PocketContainer";
-import NewItem from "./NewItemContainer/NewItemContainer";
-import React from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import './App.css';
+import NewItemContainer from "./NewItemContainer/NewItemContainer";
 
 export const ItemDispatchContext = React.createContext();
 
 function App() {
+  const [isAddItem, setAddItem ] = useState(false);
+  const [nextItemId, setnextItemId] = useState(0);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const localItems = JSON.parse(localStorage.getItem("items"));
+    
+    if(localItems === null) {
+      localStorage.setItem("items", JSON.stringify(items));
+      localStorage.setItem("nextItemId", nextItemId);
+      return;
+    }
+
+    const localNextItemId = +localStorage.getItem("nextItemId");
+    const copyLocalItems = [...localItems];
+
+    copyLocalItems.forEach((item, index) => {
+      copyLocalItems[index].date = new Date(item.Date);
+    });
+
+    setItems(copyLocalItems);
+    setnextItemId(localNextItemId);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+    localStorage.setItem("nextItemId", nextItemId);
+  },[items]);
+
+  const onAdd = useCallback((addItemData) => {
+    setnextItemId(false);
+    setAddItem(true);
+    setItems((prevItems) => [...prevItems, addItemData]);
+  });
+
+  const onRemove = useCallback((deleteItemData) => {
+    setAddItem(false);
+    setItems((items) => {[...items].filter((item) => item.id !== deleteItemData)})
+  },[]);
+
+  const memorizedDispatches = useMemo(() => {
+    return { onAdd, onRemove };
+  },[]);
+
+  const memorizedNextItemId = useMemo(() => {
+    return {nextItemId};
+  },[nextItemId]);
+
+
+
+
   return (
     <>  
-        <PocketContainer />
+     <ItemDispatchContext.Provider value={[memorizedDispatches, memorizedNextItemId]}>
+        <PocketContainer items={items} isAddItem={isAddItem} />
+      </ItemDispatchContext.Provider>
     </>
   );
 }

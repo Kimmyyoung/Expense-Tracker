@@ -42,6 +42,7 @@ function PocketContainer(props){
             <FilterContext.Provider value={memoizedFilter}>
                 <PocketStatus />
                 <PocketHistory />
+                <PocketChart />
             </FilterContext.Provider>
         </Wrapper>
 
@@ -56,12 +57,14 @@ function PocketContainer(props){
 
 const Wrapper = styled.div`
     width: 393px;
-    height: 500px;
     background-color: white;
     border-radius: 20px;
+    height: 650px;
 `;
 
 const NewItemWrapper = styled.div`
+    background-color: white;
+
     margin-top: 1%;
     width: 393px;
     margin-bottom: 1%;
