@@ -1,8 +1,8 @@
 import PocketContainer from "./PocketContainer/PocketContainer";
 import React, {useCallback, useEffect, useMemo, useState} from "react";
 import './App.css';
-import NewItemContainer from "./NewItemContainer/NewItemContainer";
-
+import NewItem from "./NewItemContainer/NewItem";
+import styled from "styled-components";
 export const ItemDispatchContext = React.createContext();
 
 function App() {
@@ -36,10 +36,10 @@ function App() {
   },[items]);
 
   const onAdd = useCallback((addItemData) => {
-    setnextItemId(false);
+    setnextItemId((nextItemId) => nextItemId + 1);
     setAddItem(true);
     setItems((prevItems) => [...prevItems, addItemData]);
-  });
+  },[]);
 
   const onRemove = useCallback((deleteItemData) => {
     setAddItem(false);
@@ -61,10 +61,22 @@ function App() {
     <>  
      <ItemDispatchContext.Provider value={[memorizedDispatches, memorizedNextItemId]}>
         <PocketContainer items={items} isAddItem={isAddItem} />
+        <NewItemWrapper>
+           <NewItem />
+        </NewItemWrapper>
       </ItemDispatchContext.Provider>
     </>
   );
 }
 
+
+
+const NewItemWrapper = styled.div`
+    background-color: white;
+    margin-top: 1%;
+    width: 393px;
+    margin-bottom: 1%;
+    border-radius: 20px;
+`;
 
 export default App;

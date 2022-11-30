@@ -17,10 +17,9 @@ const DateLabel = (props) => {
 }
 
 const Wrapper = styled.span`
-    font-family: 'Readex Pro';
-    font-style: normal;
-    font-weight: 400;
+    font-family: 'ReadexPro-Regular';
     font-size: 14px;
+    background-color: white;
     letter-spacing: 0.1px;
     color: #979797;
 `;

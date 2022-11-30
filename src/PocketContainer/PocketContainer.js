@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PocketHistory from "./PocketHistory";
 import PocketStatus from "./PocketStatus";
 import PocketChart from "./PocketChart";
-import NewItem from "../NewItemContainer/NewItem";
+
 export const FilterContext = React.createContext();
 
 function PocketContainer(props){
@@ -23,10 +23,15 @@ function PocketContainer(props){
         }
     },[props.items]);
 
-    if(props.items > 0) {
-        filteredItems = props.Items.filter((item) => item.date.getFullYear().toString() === filterBaseYear);
-        filteredExpense = filteredItems.filter ((item) => item.amountType === 'expense');   
-    }
+    if (props.items.length > 0) {
+        filteredItems = props.items.filter(
+          (item) => item.date.getFullYear().toString() === filterBaseYear
+        );
+    
+        filteredExpense = filteredItems.filter(
+          (item) => item.amountType === "expense"
+        );
+      }
 
     const onChangeFilter = useCallback((selectedYear) => {
         setFilterBaseYear(selectedYear);
@@ -45,11 +50,6 @@ function PocketContainer(props){
                 <PocketChart />
             </FilterContext.Provider>
         </Wrapper>
-
-        <NewItemWrapper>
-            <NewItem />
-        </NewItemWrapper>
-
         </>
         
     );
@@ -62,12 +62,4 @@ const Wrapper = styled.div`
     height: 650px;
 `;
 
-const NewItemWrapper = styled.div`
-    background-color: white;
-
-    margin-top: 1%;
-    width: 393px;
-    margin-bottom: 1%;
-    border-radius: 20px;
-`;
 export default PocketContainer;

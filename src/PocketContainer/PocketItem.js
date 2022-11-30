@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FilterContext } from "./PocketContainer";
-import Item from "../Item/Item";
+import Item from "../Item/Item.js";
 import styled from 'styled-components';
 
 const PocketItem = ()=>{
@@ -16,27 +16,39 @@ const PocketItem = ()=>{
         );
     }
 
-    const copyFilterItems = [...filteredItems];
-    const sortedFilteredItems = copyFilterItems.sort((a,b) => {
-        if(new Date(a.date).getTime() === new Date(b.date).getTime()) {
-            return b.id - a.id;
-        }
-
-        return new Date(b.date) - new Date(a.date);
-    });
-
-    return (
-        <Wrapper>
-            {sortedFilteredItems.map((item) => {
-                <Item key={item.key} id={item.id} date={item.date} title={item.title} amount={item.amount} amountType={item.amountType} />
-            })}
-        </Wrapper>
-    )
+        const copyFilterItems = [...filteredItems];
+        const sortedFilteredItems = copyFilterItems.sort((a,b) => {
+            if(new Date(a.date).getTime() === new Date(b.date).getTime()) {
+                return b.id - a.id;
+            }
+            return new Date(b.date) - new Date(a.date);
+        });
+      
+        return (
+            <>
+            <Wrapper>
+                {sortedFilteredItems.map((item)=>{
+                    return ( 
+                        <Item 
+                    key={item.id} 
+                    id={item.id} 
+                    date={item.date} 
+                    title={item.title} 
+                    amount={item.amount} 
+                    amountType={item.amountType} />
+                    )
+                })}
+            </Wrapper>
+            </>
+            
+        )
+ 
 }
 
 const Wrapper = styled.div`
     font-family: 'ReadexPro-Regular';
     background-color: white;
+    margin: 3%;
     & span {
         background-color: white;
         margin: 10%;
