@@ -23,7 +23,7 @@ function PocketContainer(props){
         }
     },[props.items]);
 
-    if (props.items.length > 0) {
+    if (props.items?.length > 0) {
         filteredItems = props.items.filter(
           (item) => item.date.getFullYear().toString() === filterBaseYear
         );
@@ -59,7 +59,7 @@ const Wrapper = styled.div`
     width: 393px;
     background-color: white;
     border-radius: 20px;
-    height: 650px;
+    height: max-content;
 `;
 
 export default PocketContainer;

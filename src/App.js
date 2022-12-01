@@ -12,18 +12,19 @@ function App() {
 
   useEffect(() => {
     const localItems = JSON.parse(localStorage.getItem("items"));
-    
-    if(localItems === null) {
+
+    if (localItems === null) {
       localStorage.setItem("items", JSON.stringify(items));
       localStorage.setItem("nextItemId", nextItemId);
+
       return;
     }
 
     const localNextItemId = +localStorage.getItem("nextItemId");
-    const copyLocalItems = [...localItems];
+    let copyLocalItems = [...localItems];
 
     copyLocalItems.forEach((item, index) => {
-      copyLocalItems[index].date = new Date(item.Date);
+      copyLocalItems[index].date = new Date(item.date);
     });
 
     setItems(copyLocalItems);

@@ -39,19 +39,21 @@ const Item = (props) => {
     return (
         <>
         <ItemStyledContainer className={itemStyleByAmountType} onClick={itemClickHandler}>
-            <ItemDetail>
-                <DateLabel date={props.date}/>
-
-                <ItemTitle>
-                    <DeleteButton style={{display: isItemClick === true? "flex" : "none"}} onClick={handleRemove} >
-                        <span>Delete Item</span>
-                    </DeleteButton>
-                    <h3>{itemCategory}</h3>
-                </ItemTitle>
-            </ItemDetail>
-            <div>
-                <strong className={fontStyleByAmountType}>{itemAmount}</strong>
-            </div>
+                <ItemDetail>
+                    <ItemCategoryImage>
+                        <h3></h3>
+                    </ItemCategoryImage>
+                    <ItemTitle>
+                            <ItemDetailCategory>{itemCategory}</ItemDetailCategory>
+                            <DateLabel date={props.date}/>
+                    </ItemTitle>
+                    <ItemTitleAmount>
+                        <strong className={fontStyleByAmountType}>{itemAmount}</strong>
+                        <DeleteButton style={{display: isItemClick === true? "flex" : "none"}} onClick={handleRemove} >
+                                <span>Delete</span>
+                        </DeleteButton>
+                    </ItemTitleAmount>
+                </ItemDetail>
         </ItemStyledContainer>
         </>
     );
@@ -61,14 +63,14 @@ const Item = (props) => {
 const ItemStyledContainer = styled.div`
     background-color: white;
     border-radius: 20px;
-    width: 341px;
-    height: 72px;
+    width: 330px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 10px 14px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25));
+    padding: 10px 14px 15px;
+    margin : 10px;
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
     cursor: pointer;
 
     & .income {
@@ -92,42 +94,80 @@ const ItemStyledContainer = styled.div`
     }
 `;
 
-const ItemTitle = styled.div`
+const ItemTitle = styled.tr`
     background-color: white;
-    display: flex;
     font-family: 'ReadexPro-Regular';
-    justify-content: center;
-    align-items: center;
     margin-left: 10%;
+    display:table-cell;
+    width:40%;
+    vertical-align:middle;
     & h3 {
         background-color: white;
-        width: 200px;
-        margin-bottom: 4px;
+        font-family: 'ReadexPro-Regular';
     }
-
 `;
+const ItemCategoryImage = styled.tr`
+    background-color: grey;
+    border-radius: 10px;
+    font-family: 'ReadexPro-Regular';
+    margin-left: 10%;
+    display:table-cell;
+    width:15%;
+    vertical-align:middle;
+`;
+const ItemTitleAmount =styled.tr`
+    background-color: white;
+    font-family: 'ReadexPro-Regular';
+    margin-left: 10%;
+    display:table-cell;
+    width:15%;
+    vertical-align:middle;
+    & strong {
+        font-family: 'ReadexPro-Regular';
+        font-size: 25px;
+        margin-left: 20%;
+    }
+    & .green {
+        color: #51DE9A; 
+    }
+    & .red {
+        color: #DE5151;
+    }
+`;
+
 
 const DeleteButton = styled.button`
     background-color: white;
     display: none;
-  justify-content: center;
-  align-items: center;
-  width: 17px;
-  height: 17px;
-  padding: 0;
-  margin: 0 5px 4px 0;
-  text-align: center;
-  letter-spacing: 0;
-  cursor: pointer;
-  & ::before {
-  content: 'X';
-  background-color: white;
-}
+    height: 17px;
+    margin-left: 18%;
+    color: #DE5151;
+    padding: 0;
+    letter-spacing: 0;
+    cursor: pointer;
+    font-family: 'ReadexPro-Regular';
+    font-size: 10px;
+    border:none;
+    & ::before {
+    content: 'X';
+    background-color: white;
+    }
 `;
 
-const ItemDetail = styled.div`
+const ItemDetail = styled.table`
     background-color: white;
     font-family: 'ReadexPro-Regular';
+    display: table;
+    width: 100%;    
+`;
+
+const ItemDetailCategory = styled.table`
+    background-color: white;
+    font-family: 'ReadexPro-Regular';
+    display: table;
+    width: 100%;   
+    padding-left: 10%;
+    font-size: 20px;
 `;
 export default Item;
 

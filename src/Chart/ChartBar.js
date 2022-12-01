@@ -23,7 +23,7 @@ const ChartBar = (props) => {
     };
 
     return (
-        <CharBar aria-label={`${year}년 ${month}월 지출 금액`}>
+        <CharBar aria-label={`${year}y ${month}m my pocket`}>
             <ChartBarInner>
                 <ChartBarFill style={{height: fillHeight, borderRadius: fillbarStyle }} 
                 onMouseOver={showAmountHandler} 
@@ -33,7 +33,7 @@ const ChartBar = (props) => {
                     )}
                 </ChartBarFill>
             </ChartBarInner>
-            <p>{month}월</p>
+            <p>{month}</p>
         </CharBar>
         
     )

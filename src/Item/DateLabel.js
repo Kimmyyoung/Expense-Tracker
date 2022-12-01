@@ -2,12 +2,10 @@ import React from "react";
 import styled from 'styled-components';
 
 const DateLabel = (props) => {
-    const dt = new Date(props);
-    
-    const year = dt.getFullYear();
-    console.log(year);
-    const month = ("00" + (dt.getMonth() + 1)).slice(-2);
-    const day = ("00" + dt.getDate()).slice(-2);
+ 
+    const year = props.date.getFullYear();
+    const month = ("00" + (props.date.getMonth() + 1)).slice(-2);
+    const day = ("00" + props.date.getDate()).slice(-2);
 
     return (
         <Wrapper>
@@ -25,3 +23,4 @@ const Wrapper = styled.span`
 `;
 
 export default DateLabel;
+
