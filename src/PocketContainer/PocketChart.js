@@ -21,11 +21,9 @@ const PocketChart = (props) => {
         { label: "12", amount: 0 },
     ];
 
-    console.log(filteredExpense);
 
     filteredExpense?.forEach((expense) => {
         const month = expense.date.getMonth();
-        console.log(month);
         monthlyExpenseData[month].amount += +expense.amount;
      });
     

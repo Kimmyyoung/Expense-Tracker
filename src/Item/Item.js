@@ -36,12 +36,24 @@ const Item = (props) => {
       onRemove(props.id);
     };
 
+    const CategoryImage = [
+        {key:1, category: 'shopping', url:'./Img/shopping.jpg'},
+        {key:2, category: 'movie', url:'./Img/movie.jpg'},
+        {key:3, category: 'transfer', url:'./Img/transfer.jpg'},
+        {key:4, category: 'app', url:'./Img/app.jpg'},
+    ]
+
+    console.log(props.title);
+    
+    const CategoryImageUrl = CategoryImage.category === itemCategory? CategoryImage[itemCategory].url : "";
+    console.log(itemCategory);
+    console.log(props.key);
     return (
         <>
         <ItemStyledContainer className={itemStyleByAmountType} onClick={itemClickHandler}>
                 <ItemDetail>
                     <ItemCategoryImage>
-                        <h3></h3>
+                       <img src={CategoryImageUrl} />
                     </ItemCategoryImage>
                     <ItemTitle>
                             <ItemDetailCategory>{itemCategory}</ItemDetailCategory>

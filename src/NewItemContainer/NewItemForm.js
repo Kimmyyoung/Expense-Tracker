@@ -80,6 +80,7 @@ const NewItemForm = () => {
 
             <CategoryContainer>
                 <h2>Category</h2>
+                
                 <Input type="text" value={enterTitle} onChange={titleChangeHandler} placeholder="Category" maxLength={TITLE_SIZE} required />
             </CategoryContainer>
 
@@ -161,6 +162,22 @@ const CategoryContainer = styled.div`
         height: 30px;
         padding: 3%;
         margin: 5%;
+    }
+`;
+
+const CategorySelect = styled.select`
+    background-color: white;
+    font-family: 'ReadexPro-SemiBold';
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    color: #51DE9;
+    height: 50px;
+    width: 350px;
+    margin:5%;
+    & option {
+        background-color: white;
+        padding-left: 10%;
     }
 `;
 
