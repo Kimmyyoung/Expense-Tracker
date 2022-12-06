@@ -5,6 +5,7 @@ import Input from "../Input/Input";
 import Button from "../Button/Button";
 import styled from "styled-components";
 import { ItemDispatchContext } from "../App.js";
+import Category from "../Category/Category.js";
 
 
 const NewItemForm = () => {
@@ -67,6 +68,18 @@ const NewItemForm = () => {
         setenterAmountType("");
 
         stopEditingHandler();
+    };
+
+    const categorydata = [
+        { id: 1, src: '../Img/shopping.jpg', value:'Shopping'},
+        { id: 2, src: '../Img/movie.jpg', value:'Movie'},
+        { id: 3, src: '../Img/app.jpg', value:'App'},
+        { id: 4, src: '../Img/transfer.jpg', value:'Transfer'},
+    ];
+    
+    const CategoryClickHandler = (e) => {
+        setEnterTitle(e.target.value);
+        console.log(setEnterTitle);
     }
 
     return (
@@ -77,11 +90,25 @@ const NewItemForm = () => {
                 <h2>Date</h2>
                 <Input type="date" value={enterDate} onChange={dateChangeHandler} min="2020-01-01" max={getDate()} required />
             </DateContainer>
-
+            
             <CategoryContainer>
                 <h2>Category</h2>
-                
-                <Input type="text" value={enterTitle} onChange={titleChangeHandler} placeholder="Category" maxLength={TITLE_SIZE} required />
+
+                {categorydata.map((categorydata) => {
+                    return(
+                        <CategoryWrapper value={enterTitle} onChange={titleChangeHandler} onClick={CategoryClickHandler}>
+                            <Category 
+                            key={categorydata.id} 
+                            src={categorydata.src} 
+                            value={categorydata.value} 
+                            title={categorydata.value}
+                            />
+                        </CategoryWrapper>
+                    );
+                })}
+                <br/>
+
+                {/* <Input type="text" value={enterTitle} onChange={titleChangeHandler} placeholder="Category" maxLength={TITLE_SIZE} required /> */}
             </CategoryContainer>
 
             <AmountContainer>
@@ -165,6 +192,13 @@ const CategoryContainer = styled.div`
     }
 `;
 
+const CategoryWrapper = styled.div`
+    float: left;
+    margin: 0% 1% 0% 2%;
+    padding-left: 3%;
+    background-color: white;
+    margin-bottom: 10%;
+`;
 const CategorySelect = styled.select`
     background-color: white;
     font-family: 'ReadexPro-SemiBold';

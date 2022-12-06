@@ -25,7 +25,7 @@ function PocketContainer(props){
 
     if (props.items?.length > 0) {
         filteredItems = props.items.filter(
-          (item) => item.date.getFullYear().toString() === filterBaseYear
+          (item) => item.date?.getFullYear().toString() === filterBaseYear
         );
     
         filteredExpense = filteredItems.filter(

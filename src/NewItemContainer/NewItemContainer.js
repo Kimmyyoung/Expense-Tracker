@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components';
-import NewItem from "./NewItem";
 import NewItemForm from "./NewItemForm";
 
 function NewItemContainer(){    

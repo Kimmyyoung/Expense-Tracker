@@ -11,24 +11,25 @@ function App() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const localItems = JSON.parse(localStorage.getItem("items"));
+      const localItems = JSON.parse(localStorage.getItem(items));
 
-    if (localItems === null) {
-      localStorage.setItem("items", JSON.stringify(items));
-      localStorage.setItem("nextItemId", nextItemId);
+      if(localItems === null) {
+        localStorage.setItem("items", JSON.stringify(items));
+        localStorage.setItem("nextItemId", nextItemId);
 
-      return;
-    }
+        return;
+      }
 
-    const localNextItemId = +localStorage.getItem("nextItemId");
-    let copyLocalItems = [...localItems];
+      const localNextItemId = +localStorage.getItem("nextItemId");
+      let copyLocalItems = [...localItems];
 
-    copyLocalItems.forEach((item, index) => {
-      copyLocalItems[index].date = new Date(item.date);
-    });
+      copyLocalItems.forEach((item, index) => {
+        copyLocalItems[index].date = new Date(item.date);
+      });
 
-    setItems(copyLocalItems);
-    setnextItemId(localNextItemId);
+      setItems(copyLocalItems);
+      setnextItemId(localNextItemId);
+  
   }, []);
 
   useEffect(() => {
