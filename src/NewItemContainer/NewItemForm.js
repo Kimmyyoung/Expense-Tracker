@@ -77,11 +77,6 @@ const NewItemForm = () => {
         { id: 4, src: '../Img/transfer.jpg', value:'Transfer'},
     ];
     
-    const CategoryClickHandler = (e) => {
-        setEnterTitle(e.target.value);
-        console.log(setEnterTitle);
-    }
-
     return (
         <Wrapper>
 
@@ -96,7 +91,7 @@ const NewItemForm = () => {
 
                 {categorydata.map((categorydata) => {
                     return(
-                        <CategoryWrapper value={enterTitle} onChange={titleChangeHandler} onClick={CategoryClickHandler}>
+                        <CategoryWrapper>
                             <Category 
                             key={categorydata.id} 
                             src={categorydata.src} 
@@ -108,7 +103,7 @@ const NewItemForm = () => {
                 })}
                 <br/>
 
-                {/* <Input type="text" value={enterTitle} onChange={titleChangeHandler} placeholder="Category" maxLength={TITLE_SIZE} required /> */}
+                <Input type="text" value={enterTitle} onChange={titleChangeHandler} placeholder="Category" maxLength={TITLE_SIZE} required />
             </CategoryContainer>
 
             <AmountContainer>

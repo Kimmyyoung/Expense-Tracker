@@ -36,18 +36,22 @@ const Item = (props) => {
       onRemove(props.id);
     };
 
-    const CategoryImage = [
-        {key:1, category: 'shopping', url:'./Img/shopping.jpg'},
-        {key:2, category: 'movie', url:'./Img/movie.jpg'},
-        {key:3, category: 'transfer', url:'./Img/transfer.jpg'},
-        {key:4, category: 'app', url:'./Img/app.jpg'},
-    ]
+    const categorydata = [
+        { id: 1, src: '../Img/shopping.jpg', value:'Shopping'},
+        { id: 2, src: '../Img/movie.jpg', value:'Movie'},
+        { id: 3, src: '../Img/app.jpg', value:'App'},
+        { id: 4, src: '../Img/transfer.jpg', value:'Transfer'},
+        { id: 5, src: '../Img/etc.jpg', value:'etc'}
+    ];
 
-    console.log(props.title);
-    
-    const CategoryImageUrl = CategoryImage.category === itemCategory? CategoryImage[itemCategory].url : "";
-    console.log(itemCategory);
-    console.log(props.key);
+  
+    let CategoryImageUrl = '';
+
+    if(itemCategory == 'Shopping') {CategoryImageUrl = categorydata[0].src;}
+    else if(itemCategory == 'Movie') {CategoryImageUrl = categorydata[1].src;}
+    else if(itemCategory == 'App') {CategoryImageUrl = categorydata[2].src;}
+    else if(itemCategory == 'Transfer') {CategoryImageUrl = categorydata[3].src;}
+    else {CategoryImageUrl = categorydata[4].src;}
     return (
         <>
         <ItemStyledContainer className={itemStyleByAmountType} onClick={itemClickHandler}>
@@ -80,7 +84,7 @@ const ItemStyledContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 10px 14px 15px;
+    padding: 20px 14px 15px;    
     margin : 10px;
     filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
     cursor: pointer;
@@ -119,14 +123,20 @@ const ItemTitle = styled.tr`
     }
 `;
 const ItemCategoryImage = styled.tr`
-    background-color: grey;
-    border-radius: 10px;
+    background-color: white;
+    & img{
+        border-radius: 10px;    
+        vertical-align:middle;
+        margin-left: 10%;
+    }
+
     font-family: 'ReadexPro-Regular';
-    margin-left: 10%;
+    border-radius: 10px;
     display:table-cell;
     width:15%;
     vertical-align:middle;
 `;
+
 const ItemTitleAmount =styled.tr`
     background-color: white;
     font-family: 'ReadexPro-Regular';

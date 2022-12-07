@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 const Category = (props) => {
     const { id, src, value, title} = props;
-    console.log("'"+src+"'");
+    
     return (
         <>
             <Wrapper>
-                <img id={id} src={src} value={value} />
+                <img id={id} src={src} value={value}/>
                 <p>{title}</p>
             </Wrapper> 
         </>
