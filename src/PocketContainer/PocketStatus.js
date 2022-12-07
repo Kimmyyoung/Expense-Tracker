@@ -57,6 +57,8 @@ const Wrapper = styled.div`
     border-radius: 20px;
     background-color: white;
     padding-top: 10%;
+    background-color: ${prop => prop.theme.backColor};
+    color: ${prop => prop.theme.textColor};
 `;
 
 const PocketStatusTitle = styled.div`
@@ -65,7 +67,8 @@ const PocketStatusTitle = styled.div`
     justify-content: center;
     width: 90%;
     margin-bottom: 10%;
-    background-color: white;
+    background-color: ${prop => prop.theme.backColor};
+    color: ${prop => prop.theme.textColor};
     padding-left: 10%;
 
 
@@ -73,21 +76,22 @@ const PocketStatusTitle = styled.div`
         font-family: 'ReadexPro-Regular';
         font-weight: 400;
         font-size: 16px;
-        color: #979797;
-        background-color: white;
+        color: ${prop => prop.theme.subtitleColor};
+        background-color: ${prop => prop.theme.backColor};
     }
     strong {
         font-family: 'ReadexPro-Regular';
         font-weight: 500;
         font-size: 40px;
         line-height: 50px;
-        color: #1D2A30;
-        background-color: white;
+        color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
     }
 `;
 
 const PocketStatusDetail = styled.div`
-    background-color: white;
+    background-color: ${prop => prop.theme.backColor};
+    color: ${prop => prop.theme.textColor};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +99,8 @@ const PocketStatusDetail = styled.div`
 `;
 
 const PocketStatusDetailSubtitle = styled.div`
-    background-color: white;
+    background-color: ${prop => prop.theme.backColor};
+    color: ${prop => prop.theme.textColor};
     display: flex;
     flex-direction : column;
     padding: 15px 0;
@@ -107,16 +112,16 @@ const PocketStatusDetailSubtitle = styled.div`
         font-weight: 400;
         font-size: 16px;
         line-height: 20px;
-        color: #979797;
-        background-color: white;
+        color: ${prop => prop.theme.subtitleColor};
+        background-color: ${prop => prop.theme.backColor};
     }
     & strong {
         font-family: 'ReadexPro-Regular';
         font-weight: 500;
         font-size: 30px;
         line-height: 38px;
-        color: #1D2A30;
-        background-color: white;
+        color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
     }
 `;
 export default PocketStatus;

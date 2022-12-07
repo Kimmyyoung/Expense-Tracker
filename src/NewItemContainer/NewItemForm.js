@@ -1,11 +1,11 @@
 import React, { useCallback, useState, useContext } from "react";
 import { addComma, enteredOnlyNumber, deleteComma } from '../utils/numberUtils.js';
 import { StopEditContext } from "./NewItem.js";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
+import Input from "../Components/Input/Input";
+import Button from "../Components/Button/Button";
 import styled from "styled-components";
 import { ItemDispatchContext } from "../App.js";
-import Category from "../Category/Category.js";
+import Category from "../Components/Category/Category.js";
 
 
 const NewItemForm = () => {
@@ -146,25 +146,29 @@ const NewItemForm = () => {
     )
 }
 const Wrapper = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     content-align: center;
     border-radius: 20px;
     & .NewItemForm {
-        background-color: white;
+        color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
     }
 `;
 const DateContainer = styled.div`
-    background-color: white;
-    
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     & h2 {
-        background-color: white;
+        color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
         font-family: 'ReadexPro-SemiBold';
         font-size: 16px;
         padding-left: 5%;
     }
 
     & Input{
-        background-color: white;
+        color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
         height: 30px;
         padding: 3%;
         margin: 5%;
@@ -172,15 +176,18 @@ const DateContainer = styled.div`
 `;
 
 const CategoryContainer = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     & h2 {
-        background-color: white;
+        color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
         font-family: 'ReadexPro-SemiBold';
         font-size: 16px;
         padding-left: 5%;
     }
     & Input{
-        background-color: white;
+        color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
         height: 30px;
         padding: 3%;
         margin: 5%;
@@ -191,29 +198,18 @@ const CategoryWrapper = styled.div`
     float: left;
     margin: 0% 1% 0% 2%;
     padding-left: 3%;
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};    
     margin-bottom: 10%;
 `;
-const CategorySelect = styled.select`
-    background-color: white;
-    font-family: 'ReadexPro-SemiBold';
-    font-size: 16px;
-    border-radius: 10px;
-    border: none;
-    color: #51DE9;
-    height: 50px;
-    width: 350px;
-    margin:5%;
-    & option {
-        background-color: white;
-        padding-left: 10%;
-    }
-`;
+
 
 const AmountContainer = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     & Input {
-        background-color: white;
+        background-color: ${prop => prop.theme.backColor};
+        color: ${prop => prop.theme.textColor};
         height: 30px;
         padding: 3%;
         margin: 5%;
@@ -221,15 +217,16 @@ const AmountContainer = styled.div`
 `;
 
 const AmountContainerSubtitle = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     & h2 {
-        background-color: white;
+        background-color: ${prop => prop.theme.backColor};
         padding-left: 5%;
         font-family: 'ReadexPro-SemiBold';
         font-size: 16px;    
     }
     & span {
-        background-color: white;
+        background-color: ${prop => prop.theme.backColor};
         padding-left: 5%;
         font-family: 'ReadexPro-regular';
         font-size: 16px;      
@@ -242,12 +239,13 @@ const AmountTypeContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    background-color: white;
-
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
 `;
 
 const AmountType = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     display: flex;
     flex-direction: row;
     width: 50%;
@@ -261,14 +259,16 @@ const AmountType = styled.div`
     & label {
         font-family: 'ReadexPro-Regular';
         font-size: 16px;
-        background-color: white;
+        color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
         margin-left: 5%;
         padding-top: 5%;
     }
 `;
 
 const ButtonContainer = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     margin: 5% 0% 5% 0%;
     display: flex;
     justify-content: center;

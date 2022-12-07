@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { addComma } from "../utils/numberUtils";
+import { addComma } from "../../utils/numberUtils";
 
 const ChartBar = (props) => {
     const [ isshowamount, setIsShowAmount ] = useState(false);
@@ -41,7 +41,8 @@ const ChartBar = (props) => {
 
 const CharBar = styled.div`
     font-family: 'ReadexPro-Regular';
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -50,13 +51,14 @@ const CharBar = styled.div`
   & p {
     font-size: 12px;
     font-family: 'ReadexPro-Regular';
-    background-color: white;
-  }
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
+    }
 `;
 
 const ChartBarInner = styled.div`
     font-family: 'ReadexPro-Regular';
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -68,7 +70,8 @@ const ChartBarInner = styled.div`
 `;
 
 const ChartBarFill = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     font-family: 'ReadexPro-Regular';
     position: relative;
     width: 100%;

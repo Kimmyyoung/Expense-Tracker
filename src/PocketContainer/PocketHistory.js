@@ -1,5 +1,5 @@
 import React from "react";
-import Filter from "../Filter/Filter";
+import Filter from "../Components/Filter/Filter";
 import PocketItem from "./PocketItem";
 import styled from 'styled-components';
 
@@ -16,11 +16,13 @@ const PocketHistory = (props)=>{
 }
 
 const Wrapper = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
 `;
 
 const SubtitleContainer = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     height: 35px;
     display: flex;
     flex-direction: row;
@@ -28,7 +30,8 @@ const SubtitleContainer = styled.div`
 `;
 
 const Subtitle = styled.h2`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     font-family: 'ReadexPro-SemiBold';
     font-size: 20px;
     margin: 0px;
@@ -38,12 +41,13 @@ const Subtitle = styled.h2`
     
     & span{
         color: #51DE9A;
-        background-color: white;
+        background-color: ${prop => prop.theme.backColor};
     }
 `;
 
 const StyledFilter = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     width: 50%;
     padding-left: 30%;
     padding-top: 2%;

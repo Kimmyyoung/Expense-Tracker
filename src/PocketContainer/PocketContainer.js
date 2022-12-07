@@ -57,7 +57,8 @@ function PocketContainer(props){
 
 const Wrapper = styled.div`
     width: 393px;
-    background-color: white;
+    background-color: ${prop => prop.theme.backColor};
+    color: ${prop => prop.theme.textColor};
     border-radius: 20px;
     height: max-content;
 `;

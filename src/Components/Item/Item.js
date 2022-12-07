@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from "react";
 import styled from 'styled-components';
-import { ItemDispatchContext } from "../App";
+import { ItemDispatchContext } from "../../App";
 import DateLabel from "./DateLabel.js";
 
 const Item = (props) => {
@@ -94,8 +94,8 @@ const ItemStyledContainer = styled.div`
         background-color: white;
     }
     & .expense {
-     border-right: 5px solid #FF5B5B;
-     background-color: white;
+        border-right: 5px solid #FF5B5B;
+        background-color: white;
     }
     & strong {
         flex-grow: 1;

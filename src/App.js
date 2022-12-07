@@ -2,13 +2,20 @@ import PocketContainer from "./PocketContainer/PocketContainer";
 import React, {useCallback, useEffect, useMemo, useState} from "react";
 import './App.css';
 import NewItem from "./NewItemContainer/NewItem";
-import styled from "styled-components";
+import styled, { ThemeProvider }from "styled-components";
+import { light, dark } from "./Theme/Theme";
+
 export const ItemDispatchContext = React.createContext();
 
 function App() {
   const [isAddItem, setAddItem ] = useState(false);
   const [nextItemId, setnextItemId] = useState(0);
   const [items, setItems] = useState([]);
+  const [ theme, setTheme ] = useState(light);
+
+  const darkMode = () => {
+    theme === light? setTheme(dark) : setTheme(light);
+  }
 
   useEffect(() => {
       const localItems = JSON.parse(localStorage.getItem(items));
@@ -57,28 +64,52 @@ function App() {
   },[nextItemId]);
 
 
-
-
   return (
     <>  
-     <ItemDispatchContext.Provider value={[memorizedDispatches, memorizedNextItemId]}>
-        <PocketContainer items={items} isAddItem={isAddItem} />
-        <NewItemWrapper>
-           <NewItem />
-        </NewItemWrapper>
-      </ItemDispatchContext.Provider>
+      <ThemeProvider theme={theme}>
+        <ItemDispatchContext.Provider value={[memorizedDispatches, memorizedNextItemId]}>
+          <Wrapper>
+              <ToggleWrapper onClick={darkMode}>{theme === dark ? '🌚' : '🌝'}</ToggleWrapper>
+              <PocketContainer items={items} isAddItem={isAddItem} />
+              <NewItemWrapper>
+                <NewItem />
+              </NewItemWrapper>
+          </Wrapper>
+        </ItemDispatchContext.Provider>
+        </ThemeProvider>
     </>
   );
 }
 
-
+const Wrapper = styled.div`
+  margin: 5% 40% 5% 40%;
+`;
 
 const NewItemWrapper = styled.div`
     background-color: white;
-    margin-top: 1%;
+    margin-top: 10%;
     width: 393px;
     margin-bottom: 1%;
     border-radius: 20px;
+`;
+
+const ToggleWrapper = styled.button`
+  position: fixed;
+  z-index: 999999;
+  bottom: 4%;
+  right: 3%;
+  background-color: ${props => props.theme.backColor};
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 96px;
+  height: 48px;
+  border-radius: 30px;
+  box-shadow: ${
+    props => props.theme === dark ? '0px 5px 10px rgba(40, 40, 40, 1), 0px 2px 4px rgba(40, 40, 40, 1)'
+    : '0 5px 10px rgba(100, 100, 100, 0.15), 0 2px 4px rgba(100, 100, 100, 0.15)'
+  }
 `;
 
 export default App;

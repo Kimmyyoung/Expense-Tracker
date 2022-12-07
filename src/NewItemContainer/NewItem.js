@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import Button from "../Button/Button";
+import Button from "../Components/Button/Button";
 import NewItemContainer from "./NewItemContainer";
 import styled from "styled-components";
 
@@ -41,7 +41,8 @@ const NewItem = () => {
 }
 
 const Wrapper = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     content-align: center;
     font-family: 'ReadexPro-Regular';
     border-radius: 20px;

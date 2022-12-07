@@ -24,7 +24,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  color: ${prop => prop.theme.textColor};
+  background-color: ${prop => prop.theme.backColor};
   border-radius:20px;
   padding: 20px;
 `;

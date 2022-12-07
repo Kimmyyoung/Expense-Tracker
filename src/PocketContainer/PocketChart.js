@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import styled from "styled-components";
-import Chart from "../Chart/Chart";
+import Chart from "../Components/Chart/Chart";
 import { FilterContext } from "./PocketContainer";
 
 const PocketChart = (props) => {
@@ -38,5 +38,7 @@ const PocketChart = (props) => {
 
 const Wrapper = styled.div`
     border-radius: 20px;
+    color: ${prop => prop.theme.textColor};
+        background-color: ${prop => prop.theme.backColor};
 `;
 export default PocketChart;

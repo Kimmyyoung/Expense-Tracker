@@ -15,19 +15,20 @@ const Category = (props) => {
 }
 
 const Wrapper = styled.div`
-    background-color: white;
+    background-color: ${prop => prop.theme.backColor};
     width: 66.94px;
     height: 84px;
     margin: 0% 2% 0% 2%;
     
     & img{
-        background-color: white;
+        background-color: ${prop => prop.theme.backColor};
         width: 66px;
         height: 66px;
+        border-radius: 10px;
     }
     & p{
-        background-color: white;
-        color: black;
+        background-color: ${prop => prop.theme.backColor};
+        color: ${prop => prop.theme.textColor};
         font-family: 'ReadexPro-Regular';
         font-size: 12px;
         text-align: center;

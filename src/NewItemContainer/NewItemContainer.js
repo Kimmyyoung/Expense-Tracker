@@ -14,7 +14,8 @@ function NewItemContainer(){
 }
 
 const Wrapper = styled.div`
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     border-radius: 20px;
     width: 393px;
     padding: 1% 0% 1% 0%;
@@ -24,12 +25,13 @@ const Subtitle = styled.div`
     height: 50px;
     margin: 5%;
     padding-top: 5%;
-    background-color: white;
+    color: ${prop => prop.theme.textColor};
+    background-color: ${prop => prop.theme.backColor};
     font-family: 'ReadexPro-SemiBold';
     font-size: 20px;
     & span{
         color: #51DE9A;
-        background-color: white;
+        background-color: ${prop => prop.theme.backColor};
     }
 
 `;
