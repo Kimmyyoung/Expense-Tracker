@@ -19,8 +19,7 @@
 <h3> :sparkles: Preview </h3>
 <hr/>
 
-![portfolio-readme](https://i.ibb.co/vBtSGL7/preview-expensertracker.gif)
-
+![portfolio-readme](https://i.ibb.co/6ZKcTTz/Kims-Expense-Tracker.gif)
 
 
 <h3> :link: Web Link </h3>
