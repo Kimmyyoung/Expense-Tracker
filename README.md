@@ -40,8 +40,7 @@
 ![React](https://img.shields.io/badge/React-61DAFB.svg?&style=for-the-badge&logo=React&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26.svg?&style=for-the-badge&logo=HTML5&logoColor=white)
 ![Sass](https://img.shields.io/badge/Sass-CC6699.svg?&style=for-the-badge&logo=Sass&logoColor=white)
-![styled-components](https://img.shields.io/badge/styled-components-DB7093.svg?&style=for-the-badge&logo=styled-components&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E.svg?&style=for-the-badge&logo=Figma&logoColor=white)
+![styledcomponents](https://img.shields.io/badge/styledcomponents-DB7093.svg?&style=for-the-badge&logo=styled-components&logoColor=white)
 
 
 <h3> :hammer: Tools </h3>
@@ -50,6 +49,7 @@
 
 ![GitHub](https://img.shields.io/badge/GitHub-181717.svg?&style=for-the-badge&logo=GitHub&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/VisualStudioCode-007ACC.svg?&style=for-the-badge&logo=GitHub&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-009688.svg?&style=for-the-badge&logo=Figma&logoColor=white)
 
 
 
