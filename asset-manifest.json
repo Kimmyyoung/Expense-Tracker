@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.7f417e1e.css",
-    "main.js": "./static/js/main.f70c2ec8.js",
+    "main.js": "./static/js/main.490757a1.js",
     "static/media/ReadexPro-SemiBold.ttf": "./static/media/ReadexPro-SemiBold.cda88394f5bece6f5630.ttf",
     "static/media/ReadexPro-Bold.ttf": "./static/media/ReadexPro-Bold.d8634ba2948ec2e0e3df.ttf",
     "static/media/ReadexPro-Medium.ttf": "./static/media/ReadexPro-Medium.4eb1f92cf45a9e3ffef1.ttf",
@@ -10,10 +10,10 @@
     "static/media/ReadexPro-Regular.ttf": "./static/media/ReadexPro-Regular.6addf71c42ac29fd2334.ttf",
     "index.html": "./index.html",
     "main.7f417e1e.css.map": "./static/css/main.7f417e1e.css.map",
-    "main.f70c2ec8.js.map": "./static/js/main.f70c2ec8.js.map"
+    "main.490757a1.js.map": "./static/js/main.490757a1.js.map"
   },
   "entrypoints": [
     "static/css/main.7f417e1e.css",
-    "static/js/main.f70c2ec8.js"
+    "static/js/main.490757a1.js"
   ]
 }
