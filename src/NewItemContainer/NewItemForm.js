@@ -71,10 +71,10 @@ const NewItemForm = () => {
     };
 
     const categorydata = [
-        { id: 1, src: '../Img/shopping.jpg', value:'Shopping'},
-        { id: 2, src: '../Img/movie.jpg', value:'Movie'},
-        { id: 3, src: '../Img/app.jpg', value:'App'},
-        { id: 4, src: '../Img/transfer.jpg', value:'Transfer'},
+        { id: 1, src: 'Img/shopping.jpg', value:'Shopping'},
+        { id: 2, src: 'Img/movie.jpg', value:'Movie'},
+        { id: 3, src: 'Img/app.jpg', value:'App'},
+        { id: 4, src: 'Img/transfer.jpg', value:'Transfer'},
     ];
     
     return (
