@@ -24,7 +24,7 @@
 
 <h3> :link: Web Link </h3>
 <hr/>
-  <p>Click :point_right:  <a href="devkimmy.com"> devkimmy.com </a> </p>
+  <p>Click :point_right:  <a href="https://kimmyyoung.github.io/ExpenseTracker/"> https://kimmyyoung.github.io/ExpenseTracker/ </a> </p>
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FKimmyyoung%2FExpenseTracker&count_bg=%2392FFAE&title_bg=%23B8B8B8&icon=&icon_color=%23050505&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
 
