@@ -47,17 +47,17 @@ const Item = (props) => {
   
     let CategoryImageUrl = '';
 
-    if(itemCategory == 'Shopping') {CategoryImageUrl = categorydata[0].src;}
-    else if(itemCategory == 'Movie') {CategoryImageUrl = categorydata[1].src;}
-    else if(itemCategory == 'App') {CategoryImageUrl = categorydata[2].src;}
-    else if(itemCategory == 'Transfer') {CategoryImageUrl = categorydata[3].src;}
+    if(itemCategory === 'Shopping') {CategoryImageUrl = categorydata[0].src;}
+    else if(itemCategory === 'Movie') {CategoryImageUrl = categorydata[1].src;}
+    else if(itemCategory === 'App') {CategoryImageUrl = categorydata[2].src;}
+    else if(itemCategory === 'Transfer') {CategoryImageUrl = categorydata[3].src;}
     else {CategoryImageUrl = categorydata[4].src;}
     return (
         <>
         <ItemStyledContainer className={itemStyleByAmountType} onClick={itemClickHandler}>
                 <ItemDetail>
                     <ItemCategoryImage>
-                       <img src={CategoryImageUrl} />
+                       <img src={CategoryImageUrl} alt="Categpry Image Error"/>
                     </ItemCategoryImage>
                     <ItemTitle>
                             <ItemDetailCategory>{itemCategory}</ItemDetailCategory>

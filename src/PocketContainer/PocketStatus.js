@@ -4,7 +4,7 @@ import { FilterContext } from "./PocketContainer";
 import styled from 'styled-components';
 
 const PocketStatus = (props) => {
-    const { filteredItems, filterBaseYear } = useContext(FilterContext);
+    const { filteredItems} = useContext(FilterContext);
 
     const [ totalBalance, setTotalBalance ] = useState(0);
     const [ totalIncome, setTotalIncome ] = useState(0);
